@@ -832,14 +832,15 @@ Bir hardlink'i sildiğinizde sadece o referans silinir, asIl veri diğer hardlin
                     continue
             
             # Sadece bir kez özet bilgi
-            self.results_textbox.insert("end", 
+            summary_text = (
                 f"Tarama Tamamlandı!\n\n"
-                f"� Özet:\n"
+                f"📊 Özet:\n"
                 f"  • {len(self.duplicate_groups)} grup duplicate dosya bulundu\n"
                 f"  • {total_files_to_link} dosya hardlink yapılacak\n"
                 f"  • {self.format_size(self.total_space_saved)} disk alanı kazanılacak\n\n"
-                "─" * 70 + "\n\n"
+                f"{'─' * 70}\n\n"
             )
+            self.results_textbox.insert("1.0", summary_text)
             
             # Grup detayları
             for idx, group in enumerate(self.duplicate_groups[:50], 1):  # İlk 50 grup
@@ -847,12 +848,13 @@ Bir hardlink'i sildiğinizde sadece o referans silinir, asIl veri diğer hardlin
                     size = os.path.getsize(group[0])
                     space_saved = size * (len(group) - 1)
                     
-                    self.results_textbox.insert("end", 
+                    group_text = (
                         f"📦 Grup {idx}:  "
                         f"Boyut: {self.format_size(size)}  |  "
                         f"Kopya: {len(group)}  |  "
                         f"Kazanç: {self.format_size(space_saved)}\n"
                     )
+                    self.results_textbox.insert("end", group_text)
                     
                     for filepath in group[:3]:  # İlk 3 dosya
                         self.results_textbox.insert("end", f"   📄 {filepath}\n")

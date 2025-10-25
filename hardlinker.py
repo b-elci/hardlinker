@@ -804,6 +804,7 @@ When you delete a hardlink, only that reference is deleted. The actual data is p
                         except (OSError, Exception):
                             continue
                     
+                    # Only add group if there are multiple unique inodes
                     if len(inodes) > 1:
                         unique_files = [files[0] for files in inodes.values()]
                         if len(unique_files) > 1:
@@ -875,14 +876,16 @@ When you delete a hardlink, only that reference is deleted. The actual data is p
                 except (OSError, Exception):
                     continue
             
-            self.results_textbox.insert("end", 
+            # Insert summary ONCE at the beginning
+            summary_text = (
                 f"Scan Completed!\n\n"
                 f"📊 Summary:\n"
                 f"  • {len(self.duplicate_groups)} duplicate file groups found\n"
                 f"  • {total_files_to_link} files will be hardlinked\n"
                 f"  • {self.format_size(self.total_space_saved)} disk space will be saved\n\n"
-                "─" * 70 + "\n\n"
+                f"{'─' * 70}\n\n"
             )
+            self.results_textbox.insert("1.0", summary_text)
             
             # Group details
             for idx, group in enumerate(self.duplicate_groups[:50], 1):
@@ -890,12 +893,13 @@ When you delete a hardlink, only that reference is deleted. The actual data is p
                     size = os.path.getsize(group[0])
                     space_saved = size * (len(group) - 1)
                     
-                    self.results_textbox.insert("end", 
+                    group_text = (
                         f"📦 Group {idx}:  "
                         f"Size: {self.format_size(size)}  |  "
                         f"Copies: {len(group)}  |  "
                         f"Savings: {self.format_size(space_saved)}\n"
                     )
+                    self.results_textbox.insert("end", group_text)
                     
                     for filepath in group[:3]:
                         self.results_textbox.insert("end", f"   📄 {filepath}\n")
