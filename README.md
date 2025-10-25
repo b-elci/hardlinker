@@ -1,4 +1,4 @@
-# 🔗 HardLinker v1.0
+# 🔗 HardLinker v1.0.1
 
 **Save disk space by creating hardlinks for duplicate files**
 
