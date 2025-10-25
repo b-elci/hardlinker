@@ -55,7 +55,7 @@ When you delete a hardlink, only that reference is deleted. The actual data is p
 
 - 📷 **Photo Backups**: Copies of the same photos in different folders
 - 🎵 **Music Archive**: Duplicate song files
-- 📁 **Project Backups**: Multiple copies of the same project
+- 📁 **AI Model Files**: Multiple copies of the same models in different folders (eg. safetensors)
 - 🎮 **Game Files**: Duplicate files from mods
 
 ### 👨‍💻 Developer
