@@ -26,17 +26,23 @@ PyInstaller.__main__.run([
     '--noconsole',
     '--clean',
     '--noconfirm',
+    # Hidden imports for CustomTkinter
+    '--hidden-import=customtkinter',
+    '--hidden-import=darkdetect',
+    '--hidden-import=tkinter',
+    '--hidden-import=_tkinter',
+    '--hidden-import=PIL',
+    '--hidden-import=PIL._tkinter_finder',
+    '--collect-all=customtkinter',
+    '--collect-all=darkdetect',
     # Optimizasyonlar
     '--optimize=2',
-    '--strip',
     # Gereksiz modülleri hariç tut
     '--exclude-module=matplotlib',
     '--exclude-module=numpy',
     '--exclude-module=pandas',
     '--exclude-module=scipy',
-    '--exclude-module=PIL',
     '--exclude-module=pytest',
-    '--exclude-module=setuptools',
     # Metadata
     '--version-file=version_info.txt',
 ])
