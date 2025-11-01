@@ -217,7 +217,7 @@ Think of it like this: A hardlink is like opening multiple doors to the same hou
 5. Instantly save disk space!
 
 👨‍💻 Developer: Barış Elçi
-💻 Version: 1.0
+💻 Version: 1.0.1
 📅 2025
 """
         
@@ -341,7 +341,7 @@ Think of it like this: A hardlink is like opening multiple doors to the same hou
     def show_help(self):
         """Show help window"""
         help_window = ctk.CTkToplevel(self)
-        help_window.title("🔗 HardLinker v1.0 - Developed by Barış Elçi")
+        help_window.title("🔗 HardLinker v1.0.1 - Developed by Barış Elçi")
         help_window.geometry("700x600")
         help_window.resizable(False, False)
         help_window.transient(self)
@@ -413,7 +413,7 @@ When you delete a hardlink, only that reference is deleted. The actual data is p
 5. Instantly save disk space!
 
 👨‍💻 Developer: Barış Elçi
-💻 Version: 1.0
+💻 Version: 1.0.1
 📅 2025
 """
         
