@@ -63,6 +63,12 @@ When you delete a hardlink, only that reference is deleted. The actual data is p
 **Barış Elçi**  
 📅 2025
 
+### ☕ Support
+
+If you find this project helpful, you can support its development:
+
+[![Buy Me A Coffee](https://img.shields.io/badge/Buy%20Me%20A%20Coffee-Support-yellow?style=for-the-badge&logo=buy-me-a-coffee)](https://buymeacoffee.com/bariselcii)
+
 ### 📜 License
 
 This software is free for personal and commercial use.
