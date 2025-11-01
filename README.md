@@ -2,6 +2,8 @@
 
 **Save disk space by creating hardlinks for duplicate files**
 
+[![Buy Me A Coffee](https://img.shields.io/badge/Buy%20Me%20A%20Coffee-Support-yellow?style=for-the-badge&logo=buy-me-a-coffee)](https://buymeacoffee.com/bariselcii)
+
 ---
 
 ## 📖 Description
