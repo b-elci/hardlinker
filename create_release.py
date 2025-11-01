@@ -8,7 +8,7 @@ import shutil
 from datetime import datetime
 
 # Release klasörü adı
-release_name = f"HardLinker_v1.0_{datetime.now().strftime('%Y%m%d')}"
+release_name = f"HardLinker_v1.0.1_{datetime.now().strftime('%Y%m%d')}"
 release_path = f"releases/{release_name}"
 
 # Eski release klasörünü temizle
@@ -27,8 +27,8 @@ print(f"\n✨ Release name: {release_name}\n")
 files_to_copy = [
     ("dist/HardLinker.exe", "HardLinker.exe"),
     ("hardlinker.ico", "hardlinker.ico"),
-    ("README.md", "README.md"),
-    ("settings.py", "settings.py"),
+    ("README.txt", "README.txt"),
+    ("LICENSE.txt", "LICENSE.txt"),
 ]
 
 print("📋 Copying files...\n")
@@ -43,52 +43,84 @@ for source, dest in files_to_copy:
         print(f"  ✗ {source} not found!")
 
 # Create installation guide
-install_guide = """# 🔗 HardLinker v1.0 - Installation Guide
+install_guide = """================================================================================
+                         HardLinker v1.0.1
+              Installation and Quick Start Guide for Windows
+================================================================================
 
-## 📥 Installation
+INSTALLATION
+------------
+1. Extract all files from the ZIP archive to any folder you like
+2. No installation required - HardLinker.exe is a standalone executable
+3. Keep all files together in the same folder
 
-1. Copy **HardLinker.exe** to any folder you like
-2. No installation required - directly executable
-3. Windows Defender/SmartScreen warning may appear on first run:
-   - Click "More info" option
-   - Click "Run anyway" button
+FIRST RUN
+---------
+When you run HardLinker.exe for the first time:
 
-## 🚀 Usage
+• Windows Defender/SmartScreen may show a warning (this is normal for new apps)
+  - Click "More info"
+  - Click "Run anyway"
 
-1. Double-click **HardLinker.exe** to start the program
-2. May request administrator rights on first use (required to create hardlinks)
-3. Select folder to scan
-4. Click "Start Scan" button
-5. Review results and confirm with "Create Hardlinks"
+• The program may request administrator rights
+  - This is required to create hardlinks in some locations
+  - Click "Yes" to allow
 
-## ⚠️ Important Notes
+QUICK START
+-----------
+1. Double-click HardLinker.exe
+2. Click "Browse Folder" and select a folder to scan
+3. Click "Start Scan" to find duplicate files
+4. Review the duplicate groups found
+5. Click "Create Hardlinks" to save disk space
+6. Done! Check the results summary
 
-- **Administrator Rights**: It's recommended to run the program as administrator
-- **First Use**: Back up your important files
-- **System Folders**: Be careful with C:\\Windows, C:\\Program Files, etc.
-- **Same Disk**: Hardlinks only work within the same disk partition (e.g., within C:)
+WHAT'S IN THIS PACKAGE
+----------------------
+• HardLinker.exe  - Main application (standalone executable)
+• hardlinker.ico  - Application icon
+• README.txt      - Full documentation and usage guide
+• LICENSE.txt     - Software license (MIT License)
+• INSTALL.txt     - This file
 
-## 🛡️ Security
+IMPORTANT NOTES
+---------------
+⚠️ Administrator Rights: Required for some hardlink operations
+⚠️ Same Disk Only: Hardlinks work only within the same disk partition (e.g., C:)
+⚠️ System Files: The program protects against critical system folders
+⚠️ First Use: Keep backups of important files before first use
 
-- Program contains no viruses/malware
-- Uses Windows' native hardlink feature
-- Source code can be reviewed: github.com/...
+SYSTEM REQUIREMENTS
+-------------------
+• Windows 10 or Windows 11 (64-bit)
+• At least 50 MB free disk space
+• Administrator rights (recommended)
 
-## 📞 Support
+SUPPORT
+-------
+• GitHub: https://github.com/b-elci/hardlinker
+• Buy Me a Coffee: https://buymeacoffee.com/bariselcii
+• Issues: Report bugs on GitHub Issues page
 
-For any issues:
-- GitHub Issues
-- Email: [email address]
+SECURITY
+--------
+✓ No viruses or malware
+✓ Uses Windows native hardlink feature
+✓ Source code available on GitHub
+✓ No internet connection required
+✓ No data collection or telemetry
 
-## 📜 License
+LICENSE
+-------
+This software is released under the MIT License.
+Free for personal and commercial use.
+See LICENSE.txt for full details.
 
-Free to use - For personal and commercial use
-
----
-
-**Developer**: Barış Elçi
-**Version**: 1.0
-**Date**: 2025
+================================================================================
+                        Developer: Barış Elçi
+                           Version: 1.0.1
+                            Year: 2025
+================================================================================
 """
 
 with open(os.path.join(release_path, "INSTALL.txt"), "w", encoding="utf-8") as f:

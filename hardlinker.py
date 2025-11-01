@@ -13,6 +13,7 @@ from collections import defaultdict
 from typing import Dict, List, Set
 import threading
 import time
+import webbrowser
 import settings
 
 # CustomTkinter settings
@@ -284,6 +285,21 @@ Think of it like this: A hardlink is like opening multiple doors to the same hou
         )
         help_btn.pack(side="right", padx=10)
         
+        # Buy Me a Coffee button - next to help button
+        coffee_btn = ctk.CTkButton(
+            header_frame,
+            text="☕",
+            command=self.open_coffee_link,
+            font=Fonts.get(16, "bold"),
+            width=35,
+            height=35,
+            corner_radius=17,
+            fg_color=Colors.ORANGE,
+            hover_color="#e09850",
+            text_color=Colors.TEXT_WHITE
+        )
+        coffee_btn.pack(side="right", padx=(10, 0))
+        
         # Title content container
         title_container = ctk.CTkFrame(header_frame, fg_color="transparent")
         title_container.pack()
@@ -317,6 +333,10 @@ Think of it like this: A hardlink is like opening multiple doors to the same hou
         
         # Create main UI components
         self.setup_main_ui()
+    
+    def open_coffee_link(self):
+        """Open Buy Me a Coffee link in browser"""
+        webbrowser.open("https://buymeacoffee.com/bariselcii")
     
     def show_help(self):
         """Show help window"""
